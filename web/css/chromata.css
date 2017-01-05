@@ -1,0 +1,24 @@
+body, html {
+    font-size: 10pt;
+    margin: 0px;
+    padding: 0px;
+    font-family: Sans-Serif;
+    background-color:#e0e0e0;
+    background: linear-gradient(to bottom,#E0E0F0,#D0D0E0);
+    height: 100%;
+    width: 100%;
+}
+
+.chimera-window {
+    position: fixed;
+    border: solid 2px #404040;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    background: #D0D0D0;
+    border-radius: 2px;
+}
+.chimera-window-title {
+    padding: 2px;
+    background: #606060;
+    color: #FFFFFF;
+    font-weight:bold;
+}

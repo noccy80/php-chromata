@@ -1,0 +1,22 @@
+{
+    "name": "noccylabs/chromata",
+    "description": "Create interactive HTML UIs",
+    "type": "application",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Christopher Vagnetoft",
+            "email": "cvagnetoft@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        },
+        "files": [ "src/global.php" ]
+    },
+    "require": {
+        "noccylabs/sdl": "^2.0",
+        "aura/router": "^3.0"
+    }
+}
