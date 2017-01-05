@@ -128,7 +128,7 @@ class Application
             case 'webapp-container':
                 l_debug("Using webapp-container as frontend");
                 $env = [ "APP_ID" => "chromata" ];
-                $this->tasks->createTask("ui", "webapp-container --webappUrlPatterns=http://127.0.0.1:{$port_www}/* --homepage http://127.0.0.1:{$port_www} --store-session-cookies", TASK_MASTER, null, $env);
+                $this->tasks->createTask("ui", "webapp-container --webappUrlPatterns=http://127.0.0.1:{$port_www}/* --homepage http://127.0.0.1:{$port_www} --store-session-cookies", TASK_MASTER|TASK_MUTE_ERR, null, $env);
                 break;
             case 'google-chrome':
             case 'chrome':

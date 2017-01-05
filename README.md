@@ -49,18 +49,6 @@ rebuild it:
 
 A new `web/js/chromata.js` should now have been created.
 
-## Known issues
-
- *  The `webapp-container` provided by Ubuntu doesn't seem to support
-    websockets, or at least the websockets are not connecting back to
-    the server. So you want to use `chrome` or `google-chrome` for things
-    to work properly.
-
-## Todos
-
- *  Move the application management out of the main Chromata Application
-    class. It would do better in the `..Chromata\App` namespace.
-
 ## Credits and Acknowledgements
 
  *  Rolf Rottman's blog post "A command line WebSocket Client" for pointing

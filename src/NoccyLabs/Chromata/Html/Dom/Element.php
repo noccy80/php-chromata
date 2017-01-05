@@ -86,6 +86,7 @@ class Element
 
     public function setValue($value)
     {
+        if ($value == $this->value) return $this;
         $this->value = $value;
         $this->update->setValue($value);
         return $this;

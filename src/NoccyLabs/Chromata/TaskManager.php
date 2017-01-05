@@ -8,6 +8,9 @@ define("TASK_RESTART",0x02); // Attempt to restart service process if it fails
 define("TASK_MASTER", 0x04); // Master process, exit app on process exit
 define("TASK_DISOWN", 0x08); // Forget about this process once it is started
 define("TASK_THREAD", 0x10); // Threading, don't use!
+define("TASK_MUTE_OUT", 0x20); // Mute output from thread stdout
+define("TASK_MUTE_ERR", 0x40); // Mute output from thread stderr
+define("TASK_MUTE", 0x60); // Mute output from thread stdout and stderr
 
 class TaskManager
 {
@@ -218,12 +221,14 @@ class TaskStruct
                 if (in_array($this->pipes[2],$r,true)) {
                     stream_set_blocking($this->pipes[2],false);
                     $lines = explode("\n",fread($this->pipes[2],4096));
-                    foreach ($lines as $line) if ($line) l_notice("%s: %s", $this->name, $line);
+                    if (!($this->flags & TASK_MUTE_ERR))
+                        foreach ($lines as $line) if ($line) l_notice("%s: %s", $this->name, $line);
                 }
                 if (in_array($this->pipes[1],$r,true)) {
                     stream_set_blocking($this->pipes[1],false);
                     $lines = explode("\n",fread($this->pipes[1],4096));
-                    foreach ($lines as $line) if ($line) l_debug("%s: %s", $this->name, $line);
+                    if (!($this->flags & TASK_MUTE_OUT))
+                        foreach ($lines as $line) if ($line) l_debug("%s: %s", $this->name, $line);
                 }
             }
         }
